@@ -1,11 +1,8 @@
-import { styled, css } from 'styled-components'
+import { css } from 'styled-components'
 
 const sizes = {
-  xl: 1300,
-  lg: 1060,
-  md: 768,
-  sm: 500,
-  xs: 400
+  lg: 1300,
+  sm: 800,
 }
 
 // Iterate through the sizes and create a media template

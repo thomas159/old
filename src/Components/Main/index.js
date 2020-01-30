@@ -11,7 +11,7 @@ import NotFound from '../NotFound'
 import * as actionCreators from './actions'
 
 const GlobalStyle = createGlobalStyle`
-@import url('https://fonts.googleapis.com/css?family=Montserrat:400,700|Syncopate:700|Teko:400|Orbitron:400|Raleway:400');
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,700');
 * {
     box-sizing: border-box;
     -webkit-tap-highlight-color: transparent;

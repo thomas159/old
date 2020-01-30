@@ -14,4 +14,3 @@ const ItemsToShowReducer = (state = 'all', action) => {
 }
 
 export default ItemsToShowReducer
-

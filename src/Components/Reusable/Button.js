@@ -1,13 +1,13 @@
-import React from 'react'
 import styled from 'styled-components'
 import * as palette from '../../variables'
 
-export const Button = styled.button`
+const Button = styled.button`
   margin: 0;
   border: 0;
   padding: 0;
   outline: 0;
   padding: 10px;
+  margin: 0 0 10px 0;
   justify-content: center;
   align-items: center;
   color: #fff;
@@ -15,7 +15,7 @@ export const Button = styled.button`
   letter-spacing: 3px;
   background: ${palette.green};
   cursor: pointer;
-  &:hover {
+  &:hover, focus {
     transition: all 0.25s ease;
     background: ${palette.darkGreen};
   }

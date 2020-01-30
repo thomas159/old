@@ -36,7 +36,7 @@ const StyledLink = styled(Link)`
   align-items: center;
   text-decoration: none;
   color: ${palette.darkGrey};
-  &:hover{
+  &:hover, focus{
     color: #fff;
     background: ${palette.lightGrey};
   }

@@ -1,21 +1,19 @@
 import {
-  ADD_ITEM, CLEAR_ITEMS, REMOVE_ITEM,
+  ADD_CHANGED_ITEM, REMOVE_CHANGED_ITEM,
 } from '../Constants'
 
-const selectedItemReducer = (state = [], action) => {
+const changedItemReducer = (state = [], action) => {
   switch (action.type) {
-    case ADD_ITEM:
+    case ADD_CHANGED_ITEM:
       return [
         ...state,
         action.item,
       ]
-    case REMOVE_ITEM:
+    case REMOVE_CHANGED_ITEM:
       return state.filter((item) => item !== action.item)
-    case CLEAR_ITEMS:
-      return []
     default:
       return state
   }
 }
 
-export default selectedItemReducer
+export default changedItemReducer
