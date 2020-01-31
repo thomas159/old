@@ -47,15 +47,15 @@ const MainWrap = styled.div`
   display: flex;
   width: 100%;
   padding: 10px;
+  justify-content: center;
   min-height: calc(100vh - 80px);
   ${media.lg`
     min-height: calc(100vh - 50px);
   `}
 `
 
-class Main extends React.Component {
+export default class Main extends React.Component {
   render() {
-    const { selectedItems } = this.props
     return (
       <Wrap>
         <GlobalStyle whiteColor />
@@ -69,7 +69,7 @@ class Main extends React.Component {
               <Task2 />
             </Route>
             <Route path="/task3">
-              <Task3 selectedItems={selectedItems} />
+              <Task3 />
             </Route>
             <Route component={NotFound} />
           </Switch>
@@ -78,9 +78,3 @@ class Main extends React.Component {
     )
   }
 }
-
-const mapStateToProps = (state) => ({
-  selectedItems: state.selectedItems,
-})
-
-export default connect(mapStateToProps, actionCreators)(Main)

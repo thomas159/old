@@ -1,13 +1,13 @@
 import {
   ADD_CHANGED_ITEM, REMOVE_CHANGED_ITEM,
-} from '../Constants'
+} from '../constants'
 
 const changedItemReducer = (state = [], action) => {
   switch (action.type) {
     case ADD_CHANGED_ITEM:
       return [
         ...state,
-        action.item,
+        { item: action.item },
       ]
     case REMOVE_CHANGED_ITEM:
       return state.filter((item) => item !== action.item)

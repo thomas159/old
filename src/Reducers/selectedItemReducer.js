@@ -1,6 +1,6 @@
 import {
   ADD_ITEM, CLEAR_ITEMS, REMOVE_ITEM,
-} from '../Constants'
+} from '../constants'
 
 const selectedItemReducer = (state = [], action) => {
   switch (action.type) {

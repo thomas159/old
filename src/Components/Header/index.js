@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
-import * as palette from '../../variables'
 import { Link } from 'react-router-dom'
+import * as palette from '../../variables'
 
 const Wrap = styled.div`
   display: grid;

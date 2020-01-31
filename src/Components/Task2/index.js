@@ -1,5 +1,4 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import * as palette from '../../variables'
 import media from '../Reusable/media'
@@ -45,7 +44,7 @@ const Option = styled.li`
 `}
 `
 
-const OptionButton = styled.div`
+const OptionButton = styled.button`
   display: flex;
   width: 100%;
   margin: 0;
@@ -58,6 +57,30 @@ const OptionButton = styled.div`
   border-radius: 5px;
   text-transform: capitalize;
   font-size: ${palette.mediumFont};
+`
+
+const DesktopOptionButton = styled(OptionButton)`
+  display: none;
+  ${media.lg`
+  display: flex;
+  width: auto;
+  font-weight: 400;
+  padding: 5px 10px;
+  `}
+  ${({ active }) => active && `
+  background: #707275;
+  color: #fff;
+    &:before{
+      content: "";
+      display: block;
+      background-image: none;
+    }
+  `}
+}
+`
+
+const MobileOptionButton = styled(OptionButton)`
+
   ${({ active }) => active && `
     font-weight: 700;
     &:before{
@@ -71,24 +94,12 @@ const OptionButton = styled.div`
     }
   `}
   ${media.lg`
-    width: auto;
-    font-weight: 400;
-    padding: 5px 10px;
-    ${({ active }) => active && `
-    background: #707275;
-    color: #fff;
-      &:before{
-        content: "";
-        display: block;
-        background-image: none;
-      }
-    `}
+    display: none;
   `}
-`
+}`
 
 const StyledButton = styled.button`
   position: relative;
-  font-family: 'Montserrat', sans-serif;
   display: flex;
   align-items: center;
   width: 100%;
@@ -141,29 +152,29 @@ export default class Task2 extends React.Component {
     const { selectedOption, show } = this.state
     return (
       <Wrap>
-        <StyledButton >
+        <StyledButton>
           <StyledMenuWrap onClick={this.handleShow}><Menu /></StyledMenuWrap>{selectedOption} 
         </StyledButton>
         <OptionWrap active={show === true}>
           {data.map((item) =>
-            <Option key={item} >
-              <OptionButton
+            <Option key={item}>
+              <MobileOptionButton
                 onClick={() => { this.handleSelect(item); this.handleShow(false) }}
                 active={selectedOption === item}
               >
-              {item}
-              </OptionButton>
+                {item}
+              </MobileOptionButton>
+              <DesktopOptionButton
+                onClick={() => { this.handleSelect(item); }}
+                active={selectedOption === item}
+              >
+                {item}
+              </DesktopOptionButton>
             </Option>,
           )}
+        )
         </OptionWrap>
       </Wrap>
     )
   }
-}
-
-
-Task2.propTypes = {
-}
-
-Task2.defaultProps = {
 }

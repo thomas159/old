@@ -3,7 +3,6 @@ import React from 'react'
 
 const StyledH2 = styled.h2`
   font-size: 24px;
-  font-family: 'Raleway',sans-serif;
   transform: uppercase;
   letter-spacing: 3px;
 `

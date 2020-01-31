@@ -18,6 +18,7 @@ const Item = styled.div`
   border-right: 1px solid #fff;
   align-items: center;
 `
+
 const Cross = styled.div`
   display: flex;
   justify-content: center;
@@ -26,7 +27,7 @@ const Cross = styled.div`
 const Element = ({ selectedItem }) => (
   <Wrap>
     <Item>
-      {selectedItem}
+      {selectedItem.name}
     </Item>
     <Cross>
       <Close />

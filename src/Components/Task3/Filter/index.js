@@ -1,8 +1,5 @@
 import React from 'react'
-import PropTypes from 'prop-types'
-import { connect } from 'react-redux'
 import styled from 'styled-components'
-import * as actionCreators from './actions'
 
 const Wrap = styled.div`
   position: relative;
@@ -57,16 +54,16 @@ class Filter extends React.Component {
   }
 
   render() {
-    const { itemsToShow, setNumberOfItems } = this.props
+    const { itemsLimit, setItemsLimit } = this.props
     const { show } = this.state
     return (
       <Wrap>
-        <StyledButton onClick={this.handleShow}>{itemsToShow}</StyledButton>
+        <StyledButton onClick={this.handleShow}>{(itemsLimit === null || itemsLimit === Infinity) ? 'All' : itemsLimit}</StyledButton>
         <OptionWrap active={show === true}>
-          <Option onClick={() => { setNumberOfItems('all'); this.handleShow(false) }}>show All</Option>
-          <Option onClick={() => { setNumberOfItems(10); this.handleShow(false) }}>upto 10</Option>
-          <Option onClick={() => { setNumberOfItems(100); this.handleShow(false) }}>upto 100</Option>
-          <Option onClick={() => { setNumberOfItems(200); this.handleShow(false) }}>upto 200</Option>
+          <Option onClick={() => { setItemsLimit(Infinity); this.handleShow(false) }}>show All</Option>
+          <Option onClick={() => { setItemsLimit(10); this.handleShow(false) }}>upto 10</Option>
+          <Option onClick={() => { setItemsLimit(100); this.handleShow(false) }}>upto 100</Option>
+          <Option onClick={() => { setItemsLimit(200); this.handleShow(false) }}>upto 200</Option>
         </OptionWrap>
       </Wrap>
     )
@@ -74,21 +71,4 @@ class Filter extends React.Component {
 }
 
 
-// Filter.propTypes = {
-//   addItem: PropTypes.func.isRequired,
-//   clearItems: PropTypes.func.isRequired,
-//   itemsToShow: PropTypes.func.isRequired,
-//   removeItem: PropTypes.func.isRequired,
-//   selectedItems: PropTypes.array,
-//   setNumberOfItems: PropTypes.func.isRequired,
-// }
-
-// Filter.defaultProps = {
-//   selectedItems: [],
-// }
-
-const mapStateToProps = (state) => ({
-  itemsToShow: state.itemsToShow,
-})
-
-export default connect(mapStateToProps, actionCreators)(Filter)
+export default Filter

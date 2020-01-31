@@ -7,11 +7,11 @@ const Button = styled.button`
   padding: 0;
   outline: 0;
   padding: 10px;
-  margin: 0 0 10px 0;
+  margin: 0 10px 10px 0;
   justify-content: center;
   align-items: center;
   color: #fff;
-  font-family: 'Raleway', sans-serif;
+  text-transform: capitalize;
   letter-spacing: 3px;
   background: ${palette.green};
   cursor: pointer;

@@ -1,5 +1,4 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import Element from '../../Reusable/Element'
 
@@ -10,19 +9,17 @@ const Wrap = styled.div`
   text-transform: capitalize;
 `
 
-// static PropTypes = {
-  
-// }
-const SelectedElements = ({ removeItem, selectedItems}) => (
+const SelectedElements = ({ onRemoveItem, selectedItems }) => (
   <Wrap>
-    {selectedItems.length > 0 && selectedItems.map((selectedItem, index) => (
-      <div 
-        key={index}
-        onClick={() => removeItem(selectedItem)}
+    {selectedItems.length > 0 && selectedItems.map((selectedItem) => (
+      <div
+        key={selectedItem.name}
+        onClick={() => onRemoveItem(selectedItem)}
+        onKeyDown={() => onRemoveItem(selectedItem)}
+        role="button"
       >
-        {console.log(selectedItem)}
         <Element
-          selectedItem={selectedItem} 
+          selectedItem={selectedItem}
         />
       </div>
       ),

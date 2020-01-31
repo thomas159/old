@@ -1,7 +1,7 @@
 
 import {
   SET_NUMBER_OF_ITEMS,
-} from '../Constants'
+} from '../constants'
 
 
 const ItemsToShowReducer = (state = 'all', action) => {

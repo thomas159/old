@@ -1,6 +1,6 @@
 import {
   SET_SEARCH_TERM,
-} from '../Constants'
+} from '../constants'
 
 
 const searchTermReducer = (state = '', action) => {

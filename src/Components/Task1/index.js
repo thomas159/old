@@ -17,7 +17,7 @@ const Grid = styled.div`
 const Cell = styled.div`
   display: flex;
   flex: 100%;
-  padding: 5px;
+  padding: 5px 0;
 `
 
 const SearchWrap = styled.div`
@@ -29,7 +29,7 @@ const Input = styled.input`
   display: flex;
   flex: 1;
   height: 40px;
-  padding: 0 10px 0 50px;;
+  padding: 0 10px 0 50px;
   margin: 0 10px 0 0;
   outline: 0;
   border: 0;
@@ -62,6 +62,55 @@ const Label = styled.label`
   }
 `
 
+
+const Search = styled.form`
+  width: 100%;
+  position: relative;
+  margin: 5px 0 0 0;
+  &:before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    font-family: 'FontAwesome';
+    content: '\f002';
+    background: $color;
+    text-align: center;
+    color: $iconColor;
+    border-radius: 5px;
+    -webkit-font-smoothing: subpixel-antialiased;
+    font-smooth: always;
+  }
+}
+`
+
+const SearchTerm = styled.input`
+  width: 100%;
+  padding: 0 10px 0 50px;
+  border: 0;
+  height: 40px;
+  outline: none;
+}`
+
+const SearchButton = styled.button`
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 0;
+  margin: 0;
+  outlin: 0;
+  border: 0;
+  width: auto;
+  border-left: 10px solid #f2f2f2;
+  height: 40px;
+  background: ${palette.lighterGrey};
+  padding: 0 10px;
+  text-transform: uppercase;
+  cursor: pointer;
+}`
+
 export default class Task1 extends React.Component {
   render() {
     return (
@@ -90,6 +139,14 @@ export default class Task1 extends React.Component {
             </Button>
           </Cell>
         </Grid>
+        <Search>
+          <SearchTerm placeholder="some placeholder" />
+          <SearchButton type="submit">Search</SearchButton>
+        </Search>
+        <Search style={{ margin: '10px 0 0 0' }}>
+          <SearchTerm placeholder="why" />
+          <SearchButton type="submit">Go</SearchButton>
+        </Search>
       </Wrap>
     )
   }
